@@ -2,6 +2,11 @@ name: Flutter Build
 
 on:
   workflow_dispatch:
+  inputs:
+    app_name:
+      description: 'App name for artifact'
+      required: false
+      default: 'candixx'
     inputs:
       build_id:
         description: 'Build ID'
@@ -142,6 +147,6 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: app-release.apk
+          name: 'candixx.apk'
           path: build/app/outputs/flutter-apk/app-release.apk
           retention-days: 7
